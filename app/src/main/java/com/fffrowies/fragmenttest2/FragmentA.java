@@ -32,17 +32,28 @@ public class FragmentA extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_a, container, false);
 
+        Bundle bundle = getArguments();
+        final int firstNum = bundle.getInt(Constants.FIRST_NUM, 0);
+        final int secondNum = bundle.getInt(Constants.SECOND_NUM, 0);
+
         txvResult = view.findViewById(R.id.txvResult);
         btnAdd = view.findViewById(R.id.btnAdd);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Code to add two numbers
+                addTwoNumbers(firstNum, secondNum);
             }
         });
 
         return view;
     }
+
+    private void addTwoNumbers(int firstNum, int secondNum) {
+
+        int result = firstNum + secondNum;
+        txvResult.setText("Result: " + result);
+    }
+
 }
 
