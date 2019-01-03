@@ -32,15 +32,20 @@ public class MainActivity extends AppCompatActivity {
         int firstNumber = Integer.valueOf(etFirstNumber.getText().toString());
         int secondNumber = Integer.valueOf(etSecondNumber.getText().toString());
 
-        Bundle bundle = new Bundle();
-        bundle.putInt(Constants.FIRST_NUM, firstNumber);
-        bundle.putInt(Constants.SECOND_NUM, secondNumber);
+
 
         FragmentA fragmentA = new FragmentA();
-        fragmentA.setArguments(bundle);
+        fragmentA.setData(firstNumber, secondNumber); // Passing the primitive Data Type
+        fragmentA.setEmployeeObj(new Employee()); // Passing Non-primitive Data Type
 
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.containerFragmentA, fragmentA, "fragA");
         transaction.commit();
+    }
+
+    public class Employee {
+
+        String name;
+        int profId;
     }
 }
