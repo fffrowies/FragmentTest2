@@ -62,4 +62,20 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Fragment B not Found", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void replaceByFragmentA(View view) {
+
+        FragmentA fragmentA = new FragmentA();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.container, fragmentA, "fragA");
+        transaction.commit();
+    }
+
+    public void replaceByFragmentB(View view) {
+
+        FragmentB fragmentB = new FragmentB();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.container, fragmentB, "fragB");
+        transaction.commit();
+    }
 }
