@@ -12,11 +12,11 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BlankFragment extends Fragment {
+public class FragmentA extends Fragment {
 
-    private static final String TAG = BlankFragment.class.getSimpleName();
+    private static final String TAG = FragmentA.class.getSimpleName();
 
-    public BlankFragment() {
+    public FragmentA() {
         // Required empty public constructor
     }
 
@@ -37,7 +37,7 @@ public class BlankFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         Log.i(TAG, "onCreateView()");
-        return inflater.inflate(R.layout.fragment_blank, container, false);
+        return inflater.inflate(R.layout.fragment_a, container, false);
     }
 
     @Override

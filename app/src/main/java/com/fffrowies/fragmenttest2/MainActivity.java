@@ -2,7 +2,7 @@ package com.fffrowies.fragmenttest2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,37 +11,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.e(TAG, "onCreate()");
         setContentView(R.layout.activity_main);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.e(TAG, "onStart()");
+    public void addFragmentA(View view) {
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.e(TAG, "onResume()");
+    public void removeFragmentA(View view) {
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.e(TAG, "onPause()");
+    public void addFragmentB(View view) {
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.e(TAG, "onStop()");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.e(TAG, "onDestroy()");
+    public void removeFragmentB(View view) {
     }
 }
