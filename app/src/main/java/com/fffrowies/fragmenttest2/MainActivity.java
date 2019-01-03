@@ -106,8 +106,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showFragmentA(View view) {
+
+        FragmentA fragmentA = (FragmentA) manager.findFragmentByTag("fragA");
+        FragmentTransaction transaction = manager.beginTransaction();
+
+        if (fragmentA != null) {
+            transaction.show(fragmentA);
+            transaction.commit();
+        } else {
+            Toast.makeText(this, "Fragment A not Found", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void hideFragmentA(View view) {
+
+        FragmentA fragmentA = (FragmentA) manager.findFragmentByTag("fragA");
+        FragmentTransaction transaction = manager.beginTransaction();
+
+        if (fragmentA != null) {
+            transaction.hide(fragmentA);
+            transaction.commit();
+        } else {
+            Toast.makeText(this, "Fragment A not Found", Toast.LENGTH_SHORT).show();
+        }
     }
 }
