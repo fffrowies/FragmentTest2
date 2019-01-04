@@ -4,14 +4,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements MyListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
     private FragmentManager manager;
-    private TextView txvResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +18,9 @@ public class MainActivity extends AppCompatActivity implements MyListener {
         setContentView(R.layout.activity_main);
 
         manager = getSupportFragmentManager();
-        txvResult = findViewById(R.id.txvResult);
 
         addFragmentA();
+        addFragmentB();
     }
 
     private void addFragmentA() {
@@ -33,10 +32,19 @@ public class MainActivity extends AppCompatActivity implements MyListener {
         transaction.commit();
     }
 
+    private void addFragmentB() {
+
+        FragmentB fragmentB = new FragmentB();
+
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.containerFragmentB, fragmentB, "fragB");
+        transaction.commit();
+    }
+
     @Override
     public void addTwoNumbers(int num1, int num2) {
+    }
 
-        int result = num1 + num2;
-        txvResult.setText("Result: " + result);
+    public void sendDataToFragmentB(View view) {
     }
 }
