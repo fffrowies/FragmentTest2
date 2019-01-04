@@ -10,35 +10,16 @@
     android:padding="10dp"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/txvResult"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/etFirstNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:text="0"/>
-
-        <EditText
-            android:id="@+id/etSecondNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:text="0"/>
-
-    </LinearLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="sendDataToFragment"
-        android:text="SEND DATA TO FRAGMENT-A"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="RESULT"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
 
     <FrameLayout
         android:id="@+id/containerFragmentA"
