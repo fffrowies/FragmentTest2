@@ -36,8 +36,9 @@ public class FragmentB extends Fragment {
         return view;
     }
 
-    public void addTwoNumbersInFragment(int x, int y) {
+    public void addTwoNumbersInFragmentB(int x, int y) {
 
-
+        int result = x + y;
+        txvResult.setText("Result : " + result);
     }
 }
