@@ -38,6 +38,10 @@ public class FragmentA extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate()");
+
+        if (savedInstanceState != null) {
+            score = savedInstanceState.getInt("score_key", 0);
+        }
         Toast.makeText(getActivity(), "Score value : " + score, Toast.LENGTH_SHORT).show();
     }
 
@@ -52,10 +56,19 @@ public class FragmentA extends Fragment {
         button = view.findViewById(R.id.button);
         textView = view.findViewById(R.id.textView);
 
+        if (savedInstanceState != null) {
+            button.setText(savedInstanceState.getString("btn_key", "LOGIN"));
+            textView.setText(savedInstanceState.getString("txv_key"));
+        }
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                textView.setText("Dummy Text");
+                button.setText("LOGOUT");
 
+                score = 47;
+                Toast.makeText(getActivity(), "Score : " + score, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -86,11 +99,14 @@ public class FragmentA extends Fragment {
         Log.i(TAG, "onPause()");
     }
 
-//    @Override
-//    public void onSaveInstanceState(@NonNull Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//        Log.i(TAG, "onSaveInstanceState()");
-//    }
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt("score_key", score);
+        outState.putString("txv_key", textView.getText().toString());
+        outState.putString("btn_key", button.getText().toString());
+    }
 
     @Override
     public void onStop() {
