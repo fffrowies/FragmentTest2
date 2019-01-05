@@ -8,11 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener {
+public class MainActivity extends AppCompatActivity
+        implements FragmentManager.OnBackStackChangedListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    FragmentManager manager;
+    private FragmentManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,5 +159,14 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         }
 
         Log.i(TAG, "\n" + msg.toString() + " \n ");
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (manager.getBackStackEntryCount() > 0) {
+            manager.popBackStack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
